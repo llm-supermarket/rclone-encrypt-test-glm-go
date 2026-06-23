@@ -106,7 +106,7 @@ func TestVersion(t *testing.T) {
 	if r.exitCode != 0 {
 		t.Fatalf("exit %d: %s", r.exitCode, r.stderr)
 	}
-	if !strings.HasPrefix(strings.TrimSpace(r.stdout), "rclone-encrypt ") {
+	if !strings.HasPrefix(strings.TrimSpace(r.stdout), "rclone-encrypt-test-glm ") {
 		t.Errorf("version output: %q", r.stdout)
 	}
 }

@@ -57,27 +57,27 @@ jobs:
           GOOS: ${{ matrix.goos }}
           GOARCH: ${{ matrix.goarch }}
           CGO_ENABLED: "0"
-        run: go build -ldflags="-X main.version=${{ steps.version.outputs.VERSION }} -s -w" -o rclone-encrypt ./
+        run: go build -ldflags="-X main.version=${{ steps.version.outputs.VERSION }} -s -w" -o rclone-encrypt-test-glm ./
       - name: Package binary (unix)
         if: matrix.goos != 'windows'
         run: |
-          mv rclone-encrypt rclone-encrypt-${{ matrix.suffix }}
-          tar czf rclone-encrypt-${{ matrix.suffix }}.tar.gz rclone-encrypt-${{ matrix.suffix }}
+          mv rclone-encrypt-test-glm rclone-encrypt-test-glm-${{ matrix.suffix }}
+          tar czf rclone-encrypt-test-glm-${{ matrix.suffix }}.tar.gz rclone-encrypt-test-glm-${{ matrix.suffix }}
       - name: Rename binary (windows)
         if: matrix.goos == 'windows'
-        run: mv rclone-encrypt rclone-encrypt-${{ matrix.suffix }}.exe
+        run: mv rclone-encrypt-test-glm rclone-encrypt-test-glm-${{ matrix.suffix }}.exe
       - name: Upload artifact (unix)
         if: matrix.goos != 'windows'
         uses: actions/upload-artifact@v4
         with:
-          name: rclone-encrypt-${{ matrix.suffix }}
-          path: rclone-encrypt-${{ matrix.suffix }}.tar.gz
+          name: rclone-encrypt-test-glm-${{ matrix.suffix }}
+          path: rclone-encrypt-test-glm-${{ matrix.suffix }}.tar.gz
       - name: Upload artifact (windows)
         if: matrix.goos == 'windows'
         uses: actions/upload-artifact@v4
         with:
-          name: rclone-encrypt-${{ matrix.suffix }}
-          path: rclone-encrypt-${{ matrix.suffix }}.exe
+          name: rclone-encrypt-test-glm-${{ matrix.suffix }}
+          path: rclone-encrypt-test-glm-${{ matrix.suffix }}.exe
 
   release:
     needs: build
@@ -118,4 +118,4 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore: update package manifests to ${{ github.ref_name }}"
-          file_pattern: "rclone-encrypt.json Formula/rclone-encrypt.rb"
+          file_pattern: "rclone-encrypt-test-glm.json Formula/rclone-encrypt-test-glm.rb"
