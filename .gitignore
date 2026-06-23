@@ -1,0 +1,12 @@
+# build artifacts
+/rclone-encrypt
+/rclone-encrypt.exe
+/rclone-encrypt-*
+/dist/
+/rclone-encrypt-*.tar.gz
+
+# test binary
+rclone-encrypt-test-bin*
+
+# go workspace
+*.test
