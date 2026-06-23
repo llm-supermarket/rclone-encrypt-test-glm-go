@@ -5,7 +5,7 @@
   "architecture": {
     "64bit": {
       "url": "https://github.com/yetanotherchris/rclone-encrypt-test-glm/releases/download/v0.1.0/rclone-encrypt-windows-amd64.exe",
-      "hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "hash": "b0370deb080307188e6f219ef76b8bfee4c3ed81069514feda2c2c86d56c5d7b",
       "bin": [
         [
           "rclone-encrypt-windows-amd64.exe",
