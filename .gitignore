@@ -1,9 +1,9 @@
 # build artifacts
-/rclone-encrypt
-/rclone-encrypt.exe
-/rclone-encrypt-*
+/rclone-encrypt-test-glm
+/rclone-encrypt-test-glm.exe
+/rclone-encrypt-test-glm-*
 /dist/
-/rclone-encrypt-*.tar.gz
+/rclone-encrypt-test-glm-*.tar.gz
 
 # test binary
 rclone-encrypt-test-bin*

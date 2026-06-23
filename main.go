@@ -1,7 +1,7 @@
-// Command rclone-encrypt encrypts and decrypts files using rclone's crypt
-// backend defaults (NaCl SecretBox for contents, AES-EME for names, scrypt for
-// key derivation). It is a standalone, cross-platform binary with no runtime
-// dependencies.
+// Command rclone-encrypt-test-glm encrypts and decrypts files using rclone's
+// crypt backend defaults (NaCl SecretBox for contents, AES-EME for names,
+// scrypt for key derivation). It is a standalone, cross-platform binary with
+// no runtime dependencies.
 package main
 
 import (
@@ -23,7 +23,7 @@ var version = "dev"
 const (
 	envPassword = "RCLONE_ENCRYPT_PASSWORD"
 	envSalt     = "RCLONE_ENCRYPT_SALT"
-	appName     = "rclone-encrypt"
+	appName     = "rclone-encrypt-test-glm"
 )
 
 func main() {

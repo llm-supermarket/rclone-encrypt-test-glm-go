@@ -22,15 +22,15 @@ The CLI is a single, statically-linked binary with no runtime dependencies, so i
 **Homebrew (macOS/Linux)**
 
 ```bash
-brew tap yetanotherchris/rclone-encrypt https://github.com/yetanotherchris/rclone-encrypt-test-glm
-brew install rclone-encrypt
+brew tap yetanotherchris/rclone-encrypt-test-glm https://github.com/yetanotherchris/rclone-encrypt-test-glm
+brew install rclone-encrypt-test-glm
 ```
 
 **Scoop (Windows)**
 
 ```bash
-scoop bucket add rclone-encrypt https://github.com/yetanotherchris/rclone-encrypt-test-glm
-scoop install rclone-encrypt
+scoop bucket add rclone-encrypt-test-glm https://github.com/yetanotherchris/rclone-encrypt-test-glm
+scoop install rclone-encrypt-test-glm
 ```
 
 ## Example usage
@@ -39,39 +39,39 @@ scoop install rclone-encrypt
 
 ```bash
 # Encrypt a file (prompts for a password and an optional salt)
-rclone-encrypt encrypt -i photo.jpg -o photo.jpg.bin
+rclone-encrypt-test-glm encrypt -i photo.jpg -o photo.jpg.bin
 
 # Decrypt it back (prints the recovered file name to stderr)
-rclone-encrypt decrypt -i photo.jpg.bin -o photo.jpg
+rclone-encrypt-test-glm decrypt -i photo.jpg.bin -o photo.jpg
 ```
 
 ### Non-interactive with an env var (recommended)
 
 ```bash
 export RCLONE_ENCRYPT_PASSWORD='correct horse battery staple'
-rclone-encrypt encrypt -i notes.txt -o notes.bin
-rclone-encrypt decrypt -i notes.bin -o notes.txt
+rclone-encrypt-test-glm encrypt -i notes.txt -o notes.bin
+rclone-encrypt-test-glm decrypt -i notes.bin -o notes.txt
 ```
 
 ### With a salt
 
 ```bash
-rclone-encrypt encrypt -i notes.txt -o notes.bin --salt 'my-salt'
-rclone-encrypt decrypt -i notes.bin -o notes.txt --salt 'my-salt'
+rclone-encrypt-test-glm encrypt -i notes.txt -o notes.bin --salt 'my-salt'
+rclone-encrypt-test-glm decrypt -i notes.bin -o notes.txt --salt 'my-salt'
 ```
 
 ### Custom filename encoding (base64)
 
 ```bash
-rclone-encrypt encrypt -i report.txt -o report.bin --filename-encoding base64
-rclone-encrypt decrypt -i report.bin -o report.txt --filename-encoding base64
+rclone-encrypt-test-glm encrypt -i report.txt -o report.bin --filename-encoding base64
+rclone-encrypt-test-glm decrypt -i report.bin -o report.txt --filename-encoding base64
 ```
 
 ### Using --password (insecure)
 
 ```bash
 # This is visible in your shell history and the process list - prefer the env var above.
-rclone-encrypt encrypt -i data.bin -o data.enc --password 'pw'
+rclone-encrypt-test-glm encrypt -i data.bin -o data.enc --password 'pw'
 
 # Wipe the entry from your history afterwards, e.g. in bash:
 history -d $(history 1)
@@ -107,7 +107,7 @@ Requires Go 1.25+.
 ```bash
 git clone https://github.com/yetanotherchris/rclone-encrypt-test-glm
 cd rclone-encrypt-test-glm
-go build -o rclone-encrypt .
+go build -o rclone-encrypt-test-glm .
 ```
 
 Run the tests:
@@ -118,4 +118,4 @@ go test ./...
 
 ## Releases
 
-Pushing a `vX.Y.Z` tag triggers the [Build and Release workflow](.github/workflows/build-release.yml), which cross-compiles binaries for Linux and macOS (amd64/arm64) and Windows (amd64), publishes a GitHub Release, and updates the Scoop manifest (`rclone-encrypt.json`) and Homebrew formula (`Formula/rclone-encrypt.rb`) in this repo.
+Pushing a `vX.Y.Z` tag triggers the [Build and Release workflow](.github/workflows/build-release.yml), which cross-compiles binaries for Linux and macOS (amd64/arm64) and Windows (amd64), publishes a GitHub Release, and updates the Scoop manifest (`rclone-encrypt-test-glm.json`) and Homebrew formula (`Formula/rclone-encrypt-test-glm.rb`) in this repo.
